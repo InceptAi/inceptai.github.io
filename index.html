@@ -11,9 +11,77 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <script  data-cfasync="false" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
+
+<script data-cfasync="false" type="text/javascript">
+jQuery( document ).ready(function( $ ) {
+	// variable to hold request
+	var request;
+	// bind to the submit event of our form
+	$("#foo").submit(function(event){
+		// abort any pending request
+		if (request) {
+			request.abort();
+		}
+		// setup some local variables
+		var $form = $(this);
+		// let's select and cache all the fields
+		var $inputs = $form.find("input");
+		// serialize the data in the form
+		var serializedData = $form.serialize();
+		// let's disable the inputs for the duration of the ajax request
+
+		// Note: we disable elements AFTER the form data has been serialized.
+
+		// Disabled form elements will not be serialized.
+
+		$inputs.prop("disabled", true);
+		$('#result').text('Sending data...');
+
+		// fire off the request to /form.php
+
+		request = $.ajax({
+			url: "https://script.google.com/macros/s/AKfycby6ks7X0kQxour-OtRmXU_unrZM-An701hrt_q4bBMts9bDO9Y/exec",
+			type: "post",
+			data: serializedData
+		});
+
+		// callback handler that will be called on success
+		request.done(function (response, textStatus, jqXHR){
+			// log a message to the console
+			$('#result').html('<a href="https://docs.google.com/a/obiai.tech/spreadsheets/d/1m933fkusgtLK4LPK3sni7Bq0L_sR6qIWbrEpjBP1B5g/edit?usp=sharing" target="_blank">Success - see Google Sheet</a>');
+
+			console.log("Hooray, it worked!");
+
+		});
+	
+
+		// callback handler that will be called on failure
+		request.fail(function (jqXHR, textStatus, errorThrown){
+			// log the error to the console
+			console.error(
+				"The following error occured: "+
+				textStatus, errorThrown
+			);
+		});
+		// callback handler that will be called regardless
+
+		// if the request failed or succeeded
+
+		request.always(function () {
+			// reenable the inputs
+			$inputs.prop("disabled", false);
+		});
+
+		// prevent default posting of form
+		event.preventDefault();
+	});
+});
+</script>
+
 	<body>
 
 		<!-- Header -->
@@ -25,7 +93,7 @@
             <p> Sign-up for updates:</p>
 
 		<!-- Signup Form -->
-			<form id="signup-form" method="get" action="https://script.google.com/macros/s/AKfycby6ks7X0kQxour-OtRmXU_unrZM-An701hrt_q4bBMts9bDO9Y/exec">
+        <form id="signup-form" method="get" >
 				<input type="email" name="Email" id="Email" placeholder="Email Address" />
 				<input type="submit" value="Sign Up" />
 			</form>
