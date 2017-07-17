@@ -39,13 +39,16 @@ jQuery( document ).ready(function( $ ) {
 
 		$inputs.prop("disabled", true);
 		console.log('Sending data...');
+        emailId = $('#Email').val();
+        console.log('Email:' + emailId);
 
 		// fire off the request to /form.php
 
 		request = $.ajax({
-			url: "https://script.google.com/macros/s/AKfycby6ks7X0kQxour-OtRmXU_unrZM-An701hrt_q4bBMts9bDO9Y/exec",
-			type: "post",
-			data: serializedData
+            crossDomain: true,
+			url: "https://script.google.com/macros/s/AKfycby6ks7X0kQxour-OtRmXU_unrZM-An701hrt_q4bBMts9bDO9Y/exec?callback=ctrlq&Email=" + encodeURIComponent(emailId),
+			type: "get",
+			dataType: "jsonp"
 		});
 
 		// callback handler that will be called on success
