@@ -54,9 +54,11 @@ jQuery( document ).ready(function( $ ) {
 		$inputs.prop("disabled", true);
 		console.log('Sending data...');
         emailId = $('#Email').val();
+        emailKey = emailId.split("@").join("_");
+        emailKey = emailKey.split(".").join("_");
         console.log('Email:' + emailId);
 
-        firebase.database().ref('inceptaiEmails/' + emailId).set({
+        firebase.database().ref('inceptaiEmails/' + emailKey).set({
             email: emailId,
             timestamp: new Date().toDateString() 
         });
