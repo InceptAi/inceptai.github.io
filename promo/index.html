@@ -125,7 +125,7 @@
 								</div>
 							</div>
 						</form>
-                        <form method="post" id="formEmail">
+                        <form method="get" id="formEmail">
 							<div class="row 50%">
 								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" id="email" name = "Email"/></div>
 								<div class="12u">
@@ -192,10 +192,10 @@ jQuery( document ).ready(function( $ ) {
 
 		// fire off the request to /form.php
 
-        var url1 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?method=POST&" + "callback=?";
+        var url1 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?method=GET&" + "callback=?";
 		request = $.ajax({
 			url: url1,
-			type: "post",
+			type: "get",
             crossDomain: true,
             dataType: "jsonp",
             data: serializedData,
