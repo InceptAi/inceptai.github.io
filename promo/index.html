@@ -177,8 +177,7 @@ jQuery( document ).ready(function( $ ) {
 
 		// serialize the data in the form
 		var serializedData = $form.serialize();
-
-	
+        console.log('data=' + serializedData);
 
 		// let's disable the inputs for the duration of the ajax request
 
@@ -193,11 +192,12 @@ jQuery( document ).ready(function( $ ) {
 
 		// fire off the request to /form.php
 
-        var url1 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?" + "callback=?";
+        var url1 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?method=POST&" + "callback=?";
 		request = $.ajax({
 			url: url1,
 			type: "post",
             crossDomain: true,
+            dataType: "jsonp",
             data: serializedData,
         });
 	
