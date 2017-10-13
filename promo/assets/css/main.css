@@ -2007,7 +2007,7 @@
 		background-position: top left, center center;
 		background-repeat: repeat, no-repeat;
 		padding: 14em 0 14em 0;
-		text-align: left;
+		text-align: center;
 		color: #fff;
 	}
 
@@ -2024,7 +2024,7 @@
 			padding: 0;
 			font-size: 1.25em;
 			line-height: 1.5em;
-			text-align: left;
+			text-align: center;
 		}
 
 		#header footer {
