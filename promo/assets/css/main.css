@@ -1890,7 +1890,7 @@
 	.dark button,
 	.dark .button {
 		background: rgba(255, 255, 255, 0.15);
-		background: rgba(5, 5, 5, 0.15);
+		background: rgba(5, 5, 5, 0.30);
 		box-shadow: inset 0 0 0 1px #fff;
 		color: #fff;
 	}
