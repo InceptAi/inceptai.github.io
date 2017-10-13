@@ -115,13 +115,12 @@
 					<div class="container 75%">
 						<form method="post" action="#">
 							<div class="row 50%">
-								<div class="6u 12u(mobile)"><input type="text" placeholder="Name" /></div>
-								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" /></div>
+								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" name = "Email"/></div>
 							</div>
 							<div class="row">
 								<div class="12u">
 									<ul class="actions">
-										<li><input type="submit" class="button" value="Request Invite" /></li>
+										<li><input id="btnEmail" type="submit" class="button" value="Request Invite" /></li>
 									</ul>
 								</div>
 							</div>
@@ -140,6 +139,20 @@
 			</section>
 
 		<!-- Scripts -->
+        <script>
+$(document).ready(function () {
+    $("#btnEmail").click(function () {
+        $.ajax({
+            url: 'https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec',
+            type: 'POST',
+            data: {bar: $("#Email").val()},
+            success: function (result) {
+                alert('success');
+            }
+        });
+    });
+});
+        </script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
