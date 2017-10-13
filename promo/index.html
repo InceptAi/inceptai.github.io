@@ -196,6 +196,7 @@ jQuery( document ).ready(function( $ ) {
 		request = $.ajax({
 			url: "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec",
 			type: "post",
+            crossDomain: true,
 			data: serializedData
 
 		});
