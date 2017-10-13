@@ -122,11 +122,10 @@
 									<ul class="actions">
 										<li><input type="submit" class="button" value="Request Invite" /></li>
 									</ul>
-                                      <p id="result"></p>
 								</div>
 							</div>
 						</form>
-                        <form method="post">
+                        <form method="post" id="formEmail">
 							<div class="row 50%">
 								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" id="email" name = "Email"/></div>
 								<div class="12u">
@@ -161,7 +160,7 @@ jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
 	// bind to the submit event of our form
-	$("#btnEmail").submit(function(event){
+	$("#formEmail").submit(function(event){
 
         console.log('within submit');
 		// abort any pending request
