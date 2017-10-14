@@ -143,6 +143,12 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 <script data-cfasync="false" type="text/javascript">
+
+function validEmail(email) { // see:
+      var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email);
+}
+
 jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
@@ -155,6 +161,11 @@ jQuery( document ).ready(function( $ ) {
 		if (request) {
 			request.abort();
 		}
+
+        if (!validEmail(document.getElementById('email').value)) {
+            alert("Please enter a valid Email to receive an Invite !");
+            return;
+        }
 
 		// setup some local variables
 		var $form = $(this);
