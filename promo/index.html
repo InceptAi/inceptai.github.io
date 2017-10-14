@@ -89,19 +89,6 @@
 				</div>
 			</section>
 
-		<!-- Second -->
-			<section id="second" class="main">
-				<header>
-					<div class="container">
-						<h2>Available through an invitation only.</h2>
-						<p>At this time, Neo is available through an invitation only so that we can focus on the product quality using feedback from users like you.<br/>
-						A limited number of invitations are available, please click below to get one today !</p>
-					</div>
-                    <br>
-					<a href="#fourth" class="button scrolly">Get an invite !</a>
-				</header>
-			</section>
-
 	<!-- Fourth -->
 			<section id="fourth" class="main">
 				<header>
@@ -113,23 +100,11 @@
 				</header>
 				<div class="content style4 featured">
 					<div class="container 75%">
-						<form method="post" action="#">
-							<div class="row 50%">
-								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" name="Email"/></div>
-							</div>
-							<div class="row">
-								<div class="12u">
-									<ul class="actions">
-										<li><input type="submit" class="button" value="Request Invite" /></li>
-									</ul>
-								</div>
-							</div>
-						</form>
                         <form method="get" id="formEmail">
 							<div class="row 50%">
 								<div class="6u 12u(mobile)"><input type="text" placeholder="Email" id="email" name = "Email"/></div>
 								<div class="12u">
-									  <li><input id="btnEmail" type="submit" value="Request Invite" /></li>
+									  <li><input class="button" type="submit" value="Request Invite" /></li>
                                       <p id="result"></p>
 								</div>
 							</div>
@@ -188,69 +163,6 @@ jQuery( document ).ready(function( $ ) {
 		$inputs.prop("disabled", true);
 		$('#result').text('Sending data...');
 
-	
-
-		// fire off the request to /form.php
-
-        var url1 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?method=GET&p=true&" + "callback=?";
-		request = $.ajax({
-			url: url1,
-			type: "get",
-            crossDomain: true,
-            dataType: "jsonp",
-            data: serializedData,
-        });
-	
-        var url2 = "https://script.google.com/macros/u/0/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?" + serializedData + "&" + "callback=?";
-        $.getJSON(url2, function(json){
-              console.log(json);
-        });
-
-		// callback handler that will be called on success
-
-		request.done(function (response, textStatus, jqXHR){
-
-			// log a message to the console
-			$('#result').html('Success - Thank you !');
-			console.log("Hooray, it worked!");
-
-		});
-
-		// callback handler that will be called on failure
-
-		request.fail(function (jqXHR, textStatus, errorThrown){
-
-			// log the error to the console
-
-			console.error(
-
-				"The following error occured: "+
-
-				textStatus, errorThrown
-
-			);
-
-		});
-
-	
-
-		// callback handler that will be called regardless
-
-		// if the request failed or succeeded
-
-		request.always(function () {
-
-			// reenable the inputs
-
-			$inputs.prop("disabled", false);
-
-		});
-
-	
-
-		// prevent default posting of form
-
-		event.preventDefault();
 
         var url2 = "https://script.google.com/a/obiai.tech/macros/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?" + serializedData + "&" + "prefix=alert&callback=emailSaved";
         var my_script = document.createElement('script');
