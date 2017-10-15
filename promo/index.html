@@ -12,8 +12,13 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <style>
+        .hide-robot{
+            display:none;
+        }
+        </style>
+    </head>
 	<body>
 		<!-- Header -->
            <section id="header" class="dark">
@@ -30,6 +35,7 @@
                         <form method="get" id="formEmail">
 							<div class="row">
 								<div class="6u">
+                                      <input name="name" type="text" id="name" class="hide-robot">
                                       <input type="text" placeholder="Email" id="email" name = "Email"/>
                                 </div>
 								<div class="6u">
@@ -149,9 +155,19 @@ function validEmail(email) { // see:
         return re.test(email);
 }
 
+function isRobot() {
+    return ! $('#name').value;
+}
+
 jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
+
+    if (isRobot()) {
+        alert("ROBOT");
+        return;
+    }
+
 	// bind to the submit event of our form
 	$("#formEmail").submit(function(event){
 
