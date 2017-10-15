@@ -16,7 +16,7 @@
         <style>
         .hide-robot{
             display:none;
-            visibility:none;
+            visibility:hidden;
         }
         </style>
     </head>
@@ -159,6 +159,7 @@ function validEmail(email) { // see:
 }
 
 function isRobot() {
+    console.log("name = " + $('#name').value);
     return ! $('#name').value;
 }
 
