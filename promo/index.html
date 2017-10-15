@@ -16,13 +16,12 @@
         <style>
         .hide-robot{
             display:none;
+            visibility:hidden;
         }
         </style>
     </head>
 	<body>
-		<!--
-            visibility:hidden;
-      Header -->
+		<!-- Header -->
            <section id="header" class="dark">
                <header>
 					<h1>Introducing Neo</h1>
@@ -35,15 +34,18 @@
 					<div class="container 75%">
                         <form method="get" id="formEmail">
 							<div class="row">
-								<div class="6u">
+								<div class="12u">
                                       <input name="name" type="text" id="name" class="hide-robot">
+                                </div>
+                            </div>
+							<div class="row">
+								<div class="6u">
                                       <input type="text" placeholder="Enter your Email address" id="email" name = "Email"/>
                                 </div>
 								<div class="6u">
 									  <input class="button" type="submit" value="Request Invite" />
                                       <p id="result"></p>
                                 </div>
-								</div>
 							</div>
 						</form>
 
