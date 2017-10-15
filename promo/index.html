@@ -160,7 +160,7 @@ function validEmail(email) { // see:
 
 function isRobot() {
     console.log("name = " + $('#name').value);
-    return ! $('#name').value;
+    return ! $('#name').value && $('#name').value !== undefined; 
 }
 
 jQuery( document ).ready(function( $ ) {
