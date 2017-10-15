@@ -163,20 +163,20 @@ jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
 
-    if (isRobot()) {
-        alert("ROBOT");
-        return;
-    }
-
 	// bind to the submit event of our form
 	$("#formEmail").submit(function(event){
 
         console.log('within submit');
 		// abort any pending request
 
-		if (request) {
-			request.abort();
-		}
+        if (isRobot()) {
+            alert("ROBOT");
+            return;
+        }
+
+        if (request) {
+            request.abort();
+        }
 
         if (!validEmail(document.getElementById('email').value)) {
             alert("Please enter a valid Email to receive an Invite !");
