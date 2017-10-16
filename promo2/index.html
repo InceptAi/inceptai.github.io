@@ -120,12 +120,16 @@ function updateMessages() {
     // $('#anim').fadeToggle();
 }
 
+function updateMessageFirst() {
+    updateMessages();
+    setInterval(updateMessages, 2500);
+}
+
 jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
 
-    updateMessages();
-    setInterval(updateMessages, 2500);
+    setTimeout(updateMessageFirst, 1000);
 
 	// bind to the submit event of our form
 	$("#formEmail").submit(function(event){
