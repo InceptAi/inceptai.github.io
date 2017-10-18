@@ -2044,7 +2044,8 @@
 		.main > header {
 			background: #fff;
 			text-align: center;
-			padding: 5em 0 5em 0;
+			/* padding: 5em 0 5em 0; */
+			padding: 1.5em 0 1.5em 0;
 			margin: 0;
 		}
 
@@ -2220,7 +2221,8 @@
 			}
 
 				.main > header {
-					padding: 3.5em 2em 3.5em 2em;
+					/* padding: 3.5em 2em 3.5em 2em; */
+					padding: 1.5em 1em 1.5em 1em;
 				}
 
 					.main > header h2 {
