@@ -2045,7 +2045,7 @@
 			background: #fff;
 			text-align: center;
 			/* padding: 5em 0 5em 0; */
-			padding: 0 0 0 0;
+			padding: 1em 0 1em 0;
 			margin: 0;
 		}
 
@@ -2062,8 +2062,7 @@
 			}
 
 		.main > .content {
-			/* padding: 6em 0 6em 0; */
-			padding: 0 0 0 0;
+			 padding: 6em 0 6em 0;
 		}
 
 			.main > .content h3 {
@@ -2156,12 +2155,12 @@
 
 			.main > header {
 				/* padding: 4em 0 4em 0;*/
-				padding: 0 0 0 0;
+				padding: 1em 0 1em 0;
 			}
 
 			.main > .content {
 				/* padding: 4em 0 4em 0;*/
-				padding: 0 0 0 0;
+				 padding: 4em 0 4em 0;
 			}
 
 	}
@@ -2225,7 +2224,7 @@
 
 				.main > header {
 					/* padding: 3.5em 2em 3.5em 2em; */
-					padding: 0 0 0 0;
+					padding: 1em 0 1em 0;
 				}
 
 					.main > header h2 {
@@ -2324,7 +2323,7 @@
 
 			.main > header {
 				/* padding: 3em 20px 3em 20px;*/
-				padding: 0 20px 0 20px;
+				padding: 1em 20px 1em 20px;
 			}
 
 				.main > header h2 {
@@ -2333,7 +2332,7 @@
 
 			.main > .content {
 				/*padding: 3em 20px 3em 20px; */
-				padding: 0 20px 0 20px;
+				padding: 3em 20px 3em 20px;
 			}
 
 				.main > .content h3 {
