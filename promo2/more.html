@@ -169,15 +169,27 @@ jQuery( document ).ready(function( $ ) {
 	// variable to hold request
 	var request;
 
+        // Feature detects Navigation Timing API support.
+        if (window.performance) {
+        // Gets the number of milliseconds since page load
+        // (and rounds the result since the value must be an integer).
+        var timeSincePageLoad = Math.round(performance.now());
+
+        // Sends the timing hit to Google Analytics.
+        ga('send', 'timing', 'more-load', 'load', timeSincePageLoad);
+        }
+
 	// bind to the submit event of our form
 	$("#formEmail").submit(function(event){
 
         console.log('within submit');
         event.preventDefault();
+        ga('send', 'event', 'click', 'submitClicked');
 		// abort any pending request
 
         if (isRobot()) {
             alert("ROBOT");
+            ga('send', 'event', 'error', 'robotDetected');
             return;
         }
 
@@ -187,6 +199,7 @@ jQuery( document ).ready(function( $ ) {
 
         if (!validEmail(document.getElementById('email').value)) {
             alert("Please enter a valid Email to receive an Invite !");
+            ga('send', 'event', 'error', 'invalidEmail');
             return;
         }
 
@@ -214,6 +227,7 @@ jQuery( document ).ready(function( $ ) {
         var my_script = document.createElement('script');
         my_script.setAttribute('src', url2);
         document.head.appendChild(my_script);
+        ga('send', 'event', 'server', 'emailSent');
         return false;
 	});
 
@@ -223,7 +237,20 @@ function emailSaved() {
 			$('#result').html('Success - Thank you !');
 			console.log("Hooray, it worked!");
             alert("Thank you ! You will receive an invite when the App is ready.");
+            ga('send', 'event', 'server', 'emailSaved');
 }
         </script>
+
+        <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-96165426-2', 'auto');
+ga('send', 'pageview');
+
+            </script>
+
 	</body>
 </html>

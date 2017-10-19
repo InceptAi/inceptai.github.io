@@ -135,7 +135,17 @@ function updateMessageFirst() {
 
 jQuery( document ).ready(function( $ ) {
 	// variable to hold request
-	var request;
+        var request;
+
+        // Feature detects Navigation Timing API support.
+        if (window.performance) {
+        // Gets the number of milliseconds since page load
+        // (and rounds the result since the value must be an integer).
+        var timeSincePageLoad = Math.round(performance.now());
+
+        // Sends the timing hit to Google Analytics.
+        ga('send', 'timing', 'promo2-load', 'load', timeSincePageLoad);
+        }
 
     setTimeout(updateMessageFirst, 1000);
 
@@ -144,10 +154,13 @@ jQuery( document ).ready(function( $ ) {
 
         event.preventDefault();
         console.log('within submit');
+        ga('send', 'event', 'click', 'submitClicked');
+
 		// abort any pending request
 
         if (isRobot()) {
             alert("ROBOT");
+            ga('send', 'event', 'error', 'robotDetected');
             return;
         }
 
@@ -157,6 +170,7 @@ jQuery( document ).ready(function( $ ) {
 
         if (!validEmail(document.getElementById('email').value)) {
             alert("Please enter a valid Email to receive an Invite !");
+            ga('send', 'event', 'error', 'invalidEmail');
             return;
         }
 
@@ -184,6 +198,7 @@ jQuery( document ).ready(function( $ ) {
         var my_script = document.createElement('script');
         my_script.setAttribute('src', url2);
         document.head.appendChild(my_script);
+        ga('send', 'event', 'server', 'emailSent');
         return false;
 	});
 
@@ -193,6 +208,7 @@ function emailSaved() {
 			$('#result').html('Success - Thank you !');
 			console.log("Hooray, it worked!");
             alert("Thank you ! You will receive an invite when the App is ready.");
+            ga('send', 'event', 'server', 'emailSaved');
 }
         </script>
 
