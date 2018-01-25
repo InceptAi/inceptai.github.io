@@ -317,9 +317,11 @@
 
 <script type="text/javascript">
 function emailSaved() {
-    $('#result').html('Success - Thank you !');
+    $('#result').html('Thank you for your note. We look forward to sharing our
+    updates with you !');
     console.log("Hooray, it worked!");
-    alert("Thank you for your note. We will get back to you shortly.");
+    //alert("Thank you for your note. We look forward to sharing our updates with
+    //you !");
     // You will receive an invite when
     //        the App is ready.");
     ga('send', 'event', 'server', 'emailSaved');
@@ -363,7 +365,7 @@ jQuery( document ).ready(function( $ ) {
               return;
           }
 
-          alert("In here");
+          //alert("In here");
           // setup some local variables
           var $form = $(this);
 
@@ -373,7 +375,7 @@ jQuery( document ).ready(function( $ ) {
           // serialize the data in the form
           var serializedData = $form.serialize();
           console.log('data=' + serializedData);
-          alert("Serialized data");
+          //alert("Serialized data");
           // let's disable the inputs for the duration
           // of the ajax request
 
@@ -384,7 +386,7 @@ jQuery( document ).ready(function( $ ) {
           // be serialized.
 
           $inputs.prop("disabled", true);
-          $('#result').text('Thanks for your note !');
+          $('#result').text('Thanks for your note. We look forward to sharing our updates with you');
 
           var url2 = "https://script.google.com/a/obiai.tech/macros/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?" + serializedData + "&" + "prefix=alert&callback=emailSaved";
           var my_script = document.createElement('script');
