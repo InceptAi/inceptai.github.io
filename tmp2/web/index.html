@@ -339,7 +339,7 @@ jQuery( document ).ready(function( $ ) {
             return;
           }
 
-          if (request)
+          if (typeof request != 'undefined')
           {
             request.abort();
           }
