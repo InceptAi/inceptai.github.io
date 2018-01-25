@@ -341,7 +341,7 @@ jQuery( document ).ready(function( $ ) {
   // bind to the submit event of our form
   $("#formContact").submit(function(event){
           event.preventDefault();
-          alert("within submit");
+          //alert("within submit");
           console.log('within submit');
           ga('send', 'event', 'click', 'submitClicked');
 
@@ -385,7 +385,7 @@ jQuery( document ).ready(function( $ ) {
           // be serialized.
 
           $inputs.prop("disabled", true);
-          $('#result').text('Thanks for your note. We look forward to sharing our updates with you');
+          $('#result').text('Thank you for your note. We look forward to sharing our updates with you');
 
           var url2 = "https://script.google.com/a/obiai.tech/macros/s/AKfycbzn5K9XKVfXLRlXlXEpk6ceZG3VQ4u1ASkc_9dBC6U8n-wEh2qE/exec?" + serializedData + "&" + "prefix=alert&callback=emailSaved";
           var my_script = document.createElement('script');
