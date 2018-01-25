@@ -248,10 +248,10 @@
 		<div class="section group">
 			  <div class="col span_2_of_3">
 				  <div class="contact-form">
-				  	  <form method="post" id="formContact" action="#">
+				  	  <form method="post" id="formContact" action="result">
 					    	
-					    		<input type="text" id="name" class="textbox" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your  Name';}">
-						    	<input type="text" id="email" class="textbox" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
+					    		<input type="text" id="commenterName" class="textbox" value="Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your  Name';}">
+						    	<input type="text" id="emailAddress" class="textbox" value="Your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your Email';}">
 						    	<div class="clear"> </div>
 						   
 						    <div>
@@ -338,6 +338,7 @@ jQuery( document ).ready(function( $ ) {
   // bind to the submit event of our form
   $("#formContact").submit(function(event){
           event.preventDefault();
+          alert("within submit");
           console.log('within submit');
           ga('send', 'event', 'click', 'submitClicked');
 
@@ -353,13 +354,14 @@ jQuery( document ).ready(function( $ ) {
             request.abort();
           }
 
-          if(!validEmail(document.getElementById('email').value))
+          if(!validEmail(document.getElementById('emailAddress').value))
           {
               alert("Please enter a valid Email !");
               ga('send', 'event', 'error', 'invalidEmail');
               return;
           }
 
+          alert("In here");
           // setup some local variables
           var $form = $(this);
 
@@ -369,7 +371,7 @@ jQuery( document ).ready(function( $ ) {
           // serialize the data in the form
           var serializedData = $form.serialize();
           console.log('data=' + serializedData);
-
+          alert("Serialized data");
           // let's disable the inputs for the duration
           // of the ajax request
 
