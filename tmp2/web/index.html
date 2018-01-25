@@ -314,6 +314,14 @@
 	</div>
 
 <script type="text/javascript">
+function emailSaved() {
+    $('#result').html('Success - Thank you !');
+    console.log("Hooray, it worked!");
+    //alert("Thank you ! You will receive an invite when
+    //        the App is ready.");
+    ga('send', 'event', 'server', 'emailSaved');
+}
+
 function validEmail(email) { // see:
   var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
   return re.test(email);
